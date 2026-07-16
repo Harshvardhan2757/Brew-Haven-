@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+
+  /* Cozy Cream & Beige Palette */
+  --color-cream-50: #FDFBF7;
+  --color-cream-100: #F5F1EB;
+  --color-cream-200: #E5DACE;
+  --color-cream-300: #d5b89a;
+  --color-cream-400: #bf9670;
+
+  /* Rich Coffee & Espresso Palette */
+  --color-coffee-50: #FDFBF7;
+  --color-coffee-100: #F5F1EB;
+  --color-coffee-200: #E5DACE;
+  --color-coffee-300: #A67C52;
+  --color-coffee-400: #8C6239;
+  --color-coffee-500: #5D4636;
+  --color-coffee-600: #4A3728;
+  --color-coffee-700: #3E2D21;
+  --color-coffee-800: #2E1F15;
+  --color-coffee-900: #20130B;
+  --color-coffee-950: #130A05;
+}
+
+/* Custom global styles to enhance smooth scrolling and modern elements */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FDFBF7;
+  color: #4A3728;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar to match the cozy espresso theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1EB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5DACE;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A67C52;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
