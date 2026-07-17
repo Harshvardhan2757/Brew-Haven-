@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
   ];
 
   const handleSendWhatsApp = () => {
-  alert("Button clicked!");
+  
 
   const finalMsg =
     customText || selectedTopic || "Hello Brew Haven! I have a general inquiry.";
