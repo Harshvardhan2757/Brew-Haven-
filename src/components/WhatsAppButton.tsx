@@ -23,7 +23,7 @@ export default function WhatsAppButton() {
 
   const whatsappUrl = `https://wa.me/918855055155?text=${encoded}`;
 
-  window.open(whatsappUrl, "_blank");
+  window.location.href = whatsappUrl;
 
   setIsOpen(false);
 };
