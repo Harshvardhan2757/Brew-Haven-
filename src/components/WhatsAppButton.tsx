@@ -14,13 +14,19 @@ export default function WhatsAppButton() {
   ];
 
   const handleSendWhatsApp = () => {
-    const finalMsg = customText || selectedTopic || 'Hello Brew Haven! I have a general inquiry.';
-    const encoded = encodeURIComponent(finalMsg);
-    // WhatsApp API trigger
-    const whatsappUrl = `https://wa.me/919876543210?text=${encoded}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    setIsOpen(false);
-  };
+  alert("Button clicked!");
+
+  const finalMsg =
+    customText || selectedTopic || "Hello Brew Haven! I have a general inquiry.";
+
+  const encoded = encodeURIComponent(finalMsg);
+
+  const whatsappUrl = `https://wa.me/918855055155?text=${encoded}`;
+
+  window.open(whatsappUrl, "_blank");
+
+  setIsOpen(false);
+};
 
   const selectTopic = (text: string) => {
     setSelectedTopic(text);
