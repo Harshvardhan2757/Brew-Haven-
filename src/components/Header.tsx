@@ -68,7 +68,7 @@ export default function Header({
             </span>
             <span className="hidden md:flex items-center gap-1">
               <Phone className="w-3 h-3 text-coffee-400" />
-              <span>+91 98765 43210</span>
+              <span>+91 88550 55155</span>
             </span>
           </div>
           <div>

@@ -135,7 +135,7 @@ export default function Contact() {
                   <div className="space-y-1">
                     <span className="text-[9px] font-mono text-coffee-400 uppercase tracking-wider block font-bold">Call / WhatsApp</span>
                     <p className="text-xs text-coffee-850 font-sans font-semibold">
-                      +91 98765 43210
+                      +91 88550 55155
                     </p>
                   </div>
                 </div>
