@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { EMAILJS } from "../lib/emailjs";
-import { supabase } from "../lib/supabase";
+import { persistBooking } from "../lib/bookings";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Users, Clock, MapPin, User, Mail, Phone, ChevronRight, ChevronLeft, Check, Sparkles, X, Info } from 'lucide-react';
@@ -112,73 +112,62 @@ export default function BookingForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateStep3()) {
-      const { error } = await supabase.from("bookings").insert([
-  {
-    name,
-    email,
-    phone,
-    guests,
-    booking_date: date,
-    booking_time: time,
-    seating,
-    message: notes,
-  },
-]);
+    if (!validateStep3()) {
+      return;
+    }
 
-if (error) {
-  console.error(error);
-
-  alert("Failed to save booking.");
-
-  return;
-}
-      const newBooking: Booking = {
-        id: `BH-${Math.floor(1000 + Math.random() * 9000)}`,
-        name,
-        email,
-        phone,
-        date,
-        time,
-        guests,
-        seating,
-        status: 'confirmed',
-        createdAt: new Date().toISOString(),
-        notes: notes.trim() || undefined,
-      };
-
-      onBookingSuccess(newBooking);
-      emailjs.send(
-    EMAILJS.SERVICE_ID,
-    EMAILJS.BOOKING_TEMPLATE,
-    {
-      to_email: email,
+    const newBooking: Booking = {
+      id: `BH-${Math.floor(1000 + Math.random() * 9000)}`,
       name,
       email,
-      booking_id: newBooking.id,
+      phone,
       date,
       time,
       guests,
       seating,
-    },
-    EMAILJS.PUBLIC_KEY
-  )
-  .then(() => {
-    console.log("Confirmation email sent.");
-  })
-  .catch((err) => {
-    console.error("EmailJS:", err);
-  });
-      
-      // Reset form fields
-      setStep(1);
-      setName('');
-      setEmail('');
-      setPhone('');
-      setNotes('');
-      setDate('');
-      setTime('');
+      status: 'confirmed',
+      createdAt: new Date().toISOString(),
+      notes: notes.trim() || undefined,
+    };
+
+    const saved = await persistBooking(newBooking);
+
+    if (!saved) {
+      alert("Failed to save booking.");
+      return;
     }
+
+    onBookingSuccess(newBooking);
+    emailjs.send(
+      EMAILJS.SERVICE_ID,
+      EMAILJS.BOOKING_TEMPLATE,
+      {
+        to_email: email,
+        name,
+        email,
+        booking_id: newBooking.id,
+        date,
+        time,
+        guests,
+        seating,
+      },
+      EMAILJS.PUBLIC_KEY
+    )
+      .then(() => {
+        console.log("Confirmation email sent.");
+      })
+      .catch((err) => {
+        console.error("EmailJS:", err);
+      });
+
+    // Reset form fields
+    setStep(1);
+    setName('');
+    setEmail('');
+    setPhone('');
+    setNotes('');
+    setDate('');
+    setTime('');
   };
 
   // Get tomorrow's date for min attribute

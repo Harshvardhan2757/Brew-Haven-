@@ -1,4 +1,4 @@
-export type SeatingPreference = 'standard' | 'window-workspace' | 'garden-patio' | 'couch-corner';
+export type SeatingPreference = 'standard' | 'window-workspace' | 'garden-patio' | 'couch-corner' | '☕Standard' | '🪟Window Workspace' | '🌿Garden Patio' | '🛋️Couch Corner';
 
 export interface Booking {
   id: string;

@@ -135,7 +135,7 @@ export default function Contact() {
                   <div className="space-y-1">
                     <span className="text-[9px] font-mono text-coffee-400 uppercase tracking-wider block font-bold">Call / WhatsApp</span>
                     <p className="text-xs text-coffee-850 font-sans font-semibold">
-                      +91 88550 55155
+                      8855055155
                     </p>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function Contact() {
           {/* Middle Column: Google Maps Location */}
           <div className="lg:col-span-4 rounded-[2rem] overflow-hidden border border-[#E5DACE] shadow-sm relative min-h-[300px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.8131221371151!2d73.84090535214608!3d18.51748888209086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07f4daa097f%3A0xce339b60765d5009!2sFerguson%20College%20Rd%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1784094744970!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.8131221371151!2d73.84090535214608!3d18.51748888209086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07f4daa097f%3A0xce339b60765d5009!2sFerguson%20College%20Rd%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1784094744970!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '320px' }}

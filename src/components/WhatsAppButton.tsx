@@ -21,7 +21,7 @@ export default function WhatsAppButton() {
 
   const encoded = encodeURIComponent(finalMsg);
 
-  const whatsappUrl = `https://wa.me/918855055155?text=${encoded}`;
+  const whatsappUrl = `https://wa.me/8855055155?text=${encoded}`;
 
   window.location.href = whatsappUrl;
 

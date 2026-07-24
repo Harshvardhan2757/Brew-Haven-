@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Sparkles, Calendar, Check, AlertCircle, Bookmark } from 'lucide-react';
 import { Booking } from './types';
+import { loadStoredBookings, saveStoredBookings } from './lib/bookings';
 
 // Import components
 import Header from './components/Header';
@@ -26,30 +27,13 @@ export default function App() {
 
   // Initialize and load bookings from local storage
   useEffect(() => {
-  async function loadBookings() {
-    const { data, error } = await supabase
-      .from("bookings")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      console.error("Failed to load bookings:", error);
-      return;
-    }
-
-    setBookings(data || []);
-  }
-
-  loadBookings();
+    const storedBookings = loadStoredBookings();
+    setBookings(storedBookings);
   }, []);
 
   // Save bookings to local storage when state changes
   const saveBookingsToStorage = (updatedList: Booking[]) => {
-    try {
-      localStorage.setItem('brew_haven_bookings', JSON.stringify(updatedList));
-    } catch (err) {
-      console.error('Failed to save bookings to local storage:', err);
-    }
+    saveStoredBookings(updatedList);
   };
 
   const handleBookingSuccess = (newBooking: Booking) => {
